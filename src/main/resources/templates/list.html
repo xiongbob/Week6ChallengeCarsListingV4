@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head th:replace="base :: headstuff">
+</head>
+<body>
+<div class="container"><nav th:replace="base :: navbar"></nav>
+    <br/>
+    <div th:if="${not #lists.isEmpty(cars)}">
+        <h1>Car List </h1>
+    </div>
+    <div th:if="${#lists.isEmpty(cars)}">
+        <h1>No Cars Available</h1>
+    </div>
+    <br/>
+
+    <div class="row">
+        <div class="col-md-3" th:each="car : ${cars}"><div th:replace="base :: car"></div></div>
+    </div>
+
+    <nav th:replace="base :: foot"></nav>
+    <th:block th:replace="base :: jslinks"></th:block>
+</div>
+</body>
+</html>
